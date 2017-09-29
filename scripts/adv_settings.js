@@ -50,7 +50,14 @@ function updateSerDist(task_num) {
 *																			*
 ****************************************************************************/
 
-function addTask(task_num) {
+function addTask(batch_num,task_num) {
+    var batch_task = "";
+	if(batch_num == 0)
+		 batch_task = "task_";
+	else{
+		batch_task = 'b'+batch_num+"_task_";
+	}
+	console.log(batch_task);
 
 	if (current_task == 0)
 		current_task = task_num;
@@ -62,7 +69,7 @@ function addTask(task_num) {
 		current_task++;
 
 	console.log("Adding task " + current_task);
-	document.getElementById("task_" + current_task).style.display = "block";
+	document.getElementById(batch_task + current_task).style.display = "block";
 	var current_tasks = document.getElementById('current_tasks').value; //.split(",").map(Number);
 	current_tasks = JSON.parse("[" + current_tasks + "]");
 	current_tasks.push(current_task);
@@ -94,4 +101,40 @@ function deleteTask(task_num) {
 
 	// var task = document.getElementById("task_" + task_num);
 	// task.parentElement.removeChild(task);
+}
+
+function switchBatch(evt, batchName) {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(batchName).style.display = "block";
+
+    evt.currentTarget.className += " active";
+}
+function displayDefault(){
+	var numBatch =  localStorage.getItem('numBatch');
+    document.getElementById("btn_dispatcher").click();
+    // document.getElementById("btn_batch_2").style.backgroundColor = '#000000';
+    if(numBatch == '1'){
+        document.getElementById("btn_batch_2").style.cursor = "not-allowed";
+        document.getElementById("btn_batch_3").style.cursor = "not-allowed";
+        // document.getElementById("btn_batch_2").style.display = "none";
+        document.getElementById("btn_batch_2").disabled = true;
+        document.getElementById("btn_batch_3").disabled = true;
+        document.getElementById("btn_batch_2").style.color = '#c8c8c8';
+        document.getElementById("btn_batch_3").style.color = '#c8c8c8';
+	}
+	if(numBatch == '2'){
+
+            document.getElementById("btn_batch_3").style.cursor = "not-allowed";
+			document.getElementById("btn_batch_3").disabled = true;
+        	document.getElementById("btn_batch_3").style.color = '#c8c8c8';
+	}
 }

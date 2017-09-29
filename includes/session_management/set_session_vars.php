@@ -236,6 +236,11 @@
     $_SESSION['monitoring outside']['description'] = 'Maintaining attentiveness to warnings and environmental conditions that may affect operations';
     $_SESSION['planning ahead']['description'] = 'Supporting the engineer in meeting required speed limits throughout the trip';
 
+// Run Simulation Button Description
+    $_SESSION['run simulation']['description'] = 'the number of replications, or the number of simulated trips. Note that more trips provide more precise results, but it may also increase the processing time';
+
+// Number of Batches
+    $_SESSION['parameters']['numBatch'] = 1;
 //  Set empty task
 
     $_SESSION['empty_task'] = array();

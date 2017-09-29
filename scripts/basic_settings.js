@@ -13,6 +13,7 @@
 *																			*
 ****************************************************************************/
 
+
 jQuery.noConflict()(function ($) {
     $(document).ready(init());
 });
@@ -177,13 +178,48 @@ function get_hour_diff(date1, date2) {
 ****************************************************************************/
 
 function toggle_custom_settings() {
-    var checked = jQuery('#custom_assistant').prop('checked') ;
-    if (checked)
+    var checked_1 = jQuery('#custom_assistant').prop('checked') ;
+    var checked_2 = jQuery('#custom_assistant_2').prop('checked') ;
+    var checked_3 = jQuery('#custom_assistant_3').prop('checked') ;
+    if (checked_1)
         jQuery('#custom_assistant_settings').removeClass('remove');
     else
         jQuery('#custom_assistant_settings').addClass('remove');
 
+    if (checked_2)
+        jQuery('#custom_assistant_settings_2').removeClass('remove');
+    else
+        jQuery('#custom_assistant_settings_2').addClass('remove');
+    if (checked_3)
+        jQuery('#custom_assistant_settings_3').removeClass('remove');
+    else
+        jQuery('#custom_assistant_settings_3').addClass('remove');
     // console.log(test);
     // if (jQuery('#custom_assistant'))
     // jQuery('#custom_assistant_settings').toggleClass('hide');
+}
+
+function addBatch() {
+    var b2 = document.getElementById('batch_2');
+    var b3 = document.getElementById('batch_3');
+    var text = document.getElementById('addBatchText');
+    var button = document.getElementById('addTaskButton');
+    if (b2.style.display === 'none' && b3.style.display === 'none') {
+        b2.style.display = 'block';
+        localStorage.setItem('numBatch', '2');
+    } else if(b2.style.display === 'block'&&  b3.style.display === 'none') {
+        b3.style.display = 'block';
+        button.style.backgroundColor = '#909090';
+        text.style.color = '#909090';
+        button.style.cursor = 'not-allowed';
+        burron.disabled = true;
+        localStorage.setItem('numBatch', '3');
+    }
+
+
+}
+localStorage.setItem('numBatch', '1');
+function calculate_dispatch(){
+    var dispatchnum = jQuery('#DispatchNum').val();
+    jQuery('#dispatch_num').val(dispatchnum);
 }

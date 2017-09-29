@@ -1,12 +1,13 @@
-			<nav id="sideNav" class="hide">
+			<nav id="sideNav" class="hide" style="width: auto">
 				<ul>
 					<li>
 						<!-- active -->
-					    <button class="accordion">Input Trip Conditions</button>
+					    <button class="accordion">Input Dispatch Conditions</button>
 						<!-- show -->
 					    <div class="accordion-content">
-					      	<a href="basic_settings.php">Basic</a>
-					      	<a href="adv_settings.php">Advanced</a>
+					      	<a href="basic_settings.php">Basic Settings</a>
+                            <a href="adv_settings.php">Operator Settings</a>
+					      	<a href="sys_settings.php">System Settings</a>
 					    </div>
 				  	</li>
 					<li><a href="view_results.php">View Results</a></li>

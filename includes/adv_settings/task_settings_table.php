@@ -23,10 +23,10 @@
 <!-- </h3> -->
 <table align="center" style="margin-top: 10px; margin-bottom: 10px;">
     <caption><h3>
-        <span style="float: left; color: #f44336; font-weight: bold;">
+        <span style="float: left; color: #f44336; font-weight: bold;font-family: 'Lucida Grande'">
             <button class="roundButton" type="button" onclick=<?php echo "deleteTask(".$taskNum.")"; ?> style="background-color: #f44336;"><strong>x</strong></button> Delete
         </span>
-        <span style="margin-left: -90px;">
+        <span style="margin-left: -90px;font-family: 'Lucida Grande'"">
             <?php echo ucwords($taskName);?>
         </span>
         </h3>

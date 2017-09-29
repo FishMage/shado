@@ -22,7 +22,9 @@
 *	Purpose:	This section defines the general page styles 				*
 *																			*
 ****************************************************************************/
-
+*{
+    font-family: "Lucida Grande";
+}
 h1, h2, h3, h4, h5, h6 {
    /*font-size: 1em !important;*/
    /*color: #000 !important;*/
@@ -138,7 +140,7 @@ h1 {
 	padding: 20px 0px;
 	height: 100%;
     /*padding: 0;*/
-    width: 200px;
+    width: 220px;
     background-color: #f1f1f1;
     position: fixed;
     /*height: 90%;*/
@@ -329,6 +331,15 @@ div.accordion-content.show {
 	margin-right: auto;
 	text-align: center;
 }
+.leftAlign{
+    /*padding-left: 5%;
+    margin-left: 10px;
+    margin-right: auto;
+    */
+    margin-left: 15%;
+    transform:  translate(-140px,-100px) scale(0.7);
+
+}
 
 .stepCircle {
 	color: <?php echo $color_theme_dark_blue; ?>;
@@ -337,23 +348,131 @@ div.accordion-content.show {
 	width: 30px;
 	height: 30px;
 	font-size: 24px;
-	border-radius: 15px;
+	border-radius: 18px;
 	text-align: center;
 	font-weight: bold;
 	position: absolute;
-	top: 5px;
+	top: 8px;
 	left: 5px;
+    transform: scale(0.8);
 }
 
 .stepBox {
-	border: 1px dashed #888;
-	border-radius: 15px;
+/*	border: 1px dashed #888;*/
+	border-radius: 5px;
 	position: relative;
 	padding-top: 25px;
 	padding-bottom: 20px;
-	padding-left:  35px;
-	padding-right: 35px;
+	padding-left:  50px;
+	padding-right: 120px;
+/*    text-align: center;*/
 	background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+
+}
+
+.formBox{
+    border: 3px solid #7cd0ff;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    padding-top: auto;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%  ;
+/*    background-color: rgba(255, 255, 255, 0.6);*/
+    background-color: rgba(240, 240, 240, 0);
+    box-shadow: 2px 8px 16px 2px rgba(0,0,0,0.1);
+    text-align: center;
+/*    -webkit-filter: blur(10px);*/
+/*    filter: url('/media/blur.svg#blur');*/
+/*    filter: blur(10px);*/
+}
+.fromBox-bg{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 99;
+
+    /* Pull the background 70px higher to the same place as #bg's */
+    background-position: center -70px;
+
+    -webkit-filter: blur(10px);
+/*    filter: url('/media/blur.svg#blur');*/
+    filter: blur(10px);
+}
+#container{
+    width: 350px;
+    height: 500px;
+    background: inherit;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    margin-left: -175px;
+    margin-top: -250px;
+    border-radius: 8px;
+}
+#container:before{
+    width: 400px;
+    height: 550px;
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    bottom: 0;
+    right: 0;
+    background: inherit;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
+    filter: blur(10px);
+}
+/****************************************************************************
+*																			*
+*	Section:	Richard 													*
+*																			*
+*	Purpose:	Tab.					                					*
+*																			*
+****************************************************************************/
+/* Style the tab */
+div.tab {
+    margin-left: 30%;
+    width: 400px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover:enabled {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active:enabled {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
 }
 
 /****************************************************************************
@@ -367,7 +486,74 @@ div.accordion-content.show {
 /*.centerText {
 	text-align: center;
 }*/
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
 
+.dropdown {
+    position: absolute;
+    display: inline-block;
+}
+
+.dropdown-content {
+    width: auto;
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content button {
+    width: 100%;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.dropdown-content button span{
+    cursor: pointer;
+    display: inline-block;
+    position: ;
+    transition: 0.5s;
+}
+.dropdown-content button span:after{
+    content: '\00bb';
+    position: relative;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+.dropdown-content button:hover{
+    padding-right: 25px;
+}
+.dropdown-content button:hover :after{
+    opacity: 1;
+    right: 0;
+}
+
+.dropdown-content a:hover {background-color: rgba(240,240,240,0.52)}
+
+.dropdown:hover .dropdown-content {
+/*    down:20px;*/
+/*    transition: 0.5s;*/
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
 .startEndTime {
 	width: 300px;
 	display: inline-block;
@@ -381,22 +567,32 @@ div.accordion-content.show {
 }
 
 .startEndTime h3, .trafficTableStepOuter h3, .assistantsSelectStepOuter h3 {
-	background-color: <?php echo $color_theme_dark_blue; ?>;
-	padding: 15px;
-	margin: 0 auto;
+/*    background-color: rgba(71,119,199,0.85);*/
+/*	padding: 3px;*/
+/*    padding-top: 5px;*/
+/*    padding-bottom: 5px;*/
+    text-wrap: none;
+	margin:  auto;
+
 	margin-bottom: 10px;
+/*    margin-top:10px;*/
+    font-family: "Lucida Grande";
+
 }
 
 .startEndTime h3 {
-	width: 150px;
+	width: auto;
+    font-size: small;
 }
 
 .trafficTableStepOuter h3 {
-	width: 200px;
+	width: auto;
 }
 
 .assistantsSelectStepOuter h3 {
-	width: 160px;
+	width: 350px;
+    text-align: center;
+/*    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
 }
 
 .trafficTableStepOuter {
@@ -416,7 +612,8 @@ div.accordion-content.show {
 }
 
 .assistantsSelectStepOuter {
-	width: 600px;
+/*	width: 600px;*/
+/*    text-align: center;*/
 }
 
 #assistantsTable {
@@ -443,6 +640,7 @@ p {
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    white-space: nowrap;
 }
 
 th, td {
@@ -520,7 +718,7 @@ th {
 
 .button {
 	background-color: #e7e7e7;
-	border: 1px solid black;
+/*	border: 1px solid black;*/
     /*border: none;*/
     color: white;
     padding: 10px 15px;
@@ -743,8 +941,9 @@ div.tooltip {
 }
 
 #custom_heading{
-	background-color: #467FC9;
-	padding: 10px;
+/*	background-color: #467FC9;*/
+/*	padding: 10px;*/
+    font-family: "Lucida Grande";
 }
 
 #custom_table{
